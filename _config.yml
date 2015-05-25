@@ -8,7 +8,7 @@ subtitle: 安忍不动如大地,静虑深密如秘藏
 description: 
 author: Alfonso
 language: zh-CN
-timezone: 
+timezone: CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -64,7 +64,8 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: pacman
-stylus: compress
+stylus: 
+  compress: true
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

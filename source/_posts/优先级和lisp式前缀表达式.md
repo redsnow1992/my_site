@@ -1,6 +1,7 @@
 title: 优先级和lisp式前缀表达式
 categories: programming
 tags: scheme
+mathjax: true
 ---
 ~~~ruby
 if(f(a,b) > 0)    # 1
@@ -14,3 +15,11 @@ if(f(a, b>0))     # 2
    ;; then-body
    ;; else-body)
 ~~~
+
+$$ x^2+y^2 = z^2 $$
+
+Simple inline $a = b + c$.
+
+{% codeblock lang:objc %}
+[rectangle setX: 10 y: 10 width: 20 height: 20];
+{% endcodeblock %}
