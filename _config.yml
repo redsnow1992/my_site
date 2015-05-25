@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
-timezone:
+title: Hello World
+subtitle: 安忍不动如大地,静虑深密如秘藏
+description: 
+author: Alfonso
+language: zh-CN
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -64,6 +64,7 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: pacman
+stylus: compress
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
