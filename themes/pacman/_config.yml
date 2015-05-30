@@ -23,13 +23,38 @@ widgets:
 ## provide six widgets:category,tag,rss,archive,tagcloud,links.
 ## modify links in `/layout/_widget/links.ejs`.
 
+links:
+- site:  http://www.opscoder.info/
+  title: opscoder
+- site:  http://my.oschina.net/pingpangkuangmo/blog
+  title: pingpangkuangmo
+- site:  http://devopstarter.info
+  title: Colstuwjx
+- site:  http://songshuhui.net/
+  title: 科学松鼠会
+- site:  http://www.techug.com/
+  title: 外刊IT评论网
+- site:  http://www.jianshu.com/users/b1dd2b2c87a8/timeline
+  title: 王垠
+- site:  http://hongjiang.info/
+  title: 在路上(有关jvm,scala与后端架构)
+- site:  http://fugangqiang.github.io/
+  title: Lispor
+- site:  http://blog.codingnow.com/
+  title: 云风的 BLOG
+- site:  http://coolshell.cn/
+  title: 酷壳
+- site:  http://octodex.github.com
+  title: Github Logos
+
+
 #### RSS
 rss: atom.xml ## RSS address.
 
 #### Image
 imglogo:
   enable: true             ## display image logo true/false.
-  src: img/logo.svg        ## `.svg` and `.png` are recommended,please put image into the theme folder `/pacman/source/img`.
+  src: img/head.svg        ## `.svg` and `.png` are recommended,please put image into the theme folder `/pacman/source/img`.
 favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/pacman/source/img`.     
 apple_icon: img/pacman.jpg ## size:114px*114px,please put image into the theme folder `/pacman/source/img`.
 
@@ -63,8 +88,8 @@ fancybox: false
 #### Author information
 author:
   google_plus:    ## eg:116338260303228776998 for https://plus.google.com/u/0/116338260303228776998
-  intro_line1: "" ## eg: "Hello ,I'm Larry Page in Google."
-  intro_line2: "" ## eg: "This is my blog,believe it or not."
+  intro_line1: "业精于勤，荒于嬉；行成于思，毁于随" ## eg: "Hello ,I'm Larry Page in Google."
+  intro_line2: "博学之　审问之　慎思之　明辨之　笃行之 " ## eg: "This is my blog,believe it or not."
   weibo:      ## e.g. 436062867 for http://weibo.com/436062867
   twitter:    ## e.g. yangjiansky for https://twitter.com/yangjiansky
   github:   redsnow1992  ## e.g. A-limon for https://github.com/A-limon
