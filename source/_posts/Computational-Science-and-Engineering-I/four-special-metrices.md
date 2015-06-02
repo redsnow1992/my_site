@@ -1,6 +1,5 @@
 title: Four Special Metrices
 date: 2015/06/01 23:41
-updated: 2015/06/01 23:41
 categories: math
 tags: linear algebra
 mathjax: true
@@ -21,7 +20,7 @@ $$
 3. Constant diagonal（常三角对称）
 4. $K_n$是可逆的。
 
-**关于$ K_4 $**的对称性：
+**关于$ K_4 $的可逆性：**
 将$K_4$转化为上三角矩阵如下：
 $$
 U_4=
@@ -42,7 +41,7 @@ C_4=
 -1 & 0 & -1 & 2   
 \end{bmatrix}
 $$
-只是不具有*可逆性*。因为存在矩阵( $ \left[ 1  1  1  1 \right] $)使其为0。
+只是不具有*可逆性*。因为存在矩阵( $ (\begin{bmatrix}  1 & 1 & 1 & 1 \end{bmatrix})^T $)使其为0。
 
 # 3. Free-Fixed Matrix
 $$
