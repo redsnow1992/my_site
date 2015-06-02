@@ -1,4 +1,4 @@
-title: Four Special Metrices
+title: Lecture 01-Four special matrices
 date: 2015/06/01 23:41
 categories: math
 tags: linear algebra
