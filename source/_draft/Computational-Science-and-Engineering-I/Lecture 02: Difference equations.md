@@ -6,8 +6,8 @@ mathjax: true
 # 1. 一阶微分
 $$
 \text{Forward:}\Delta_{F}=\frac{U(x+h)-U(x)}{h}\approx{U'(x)+O(h) }   \\\\
-\text{Backward:}\Delta_{B}=\frac{U(x)-U(x-h)}{h}\apporx{U'(x)+O(h) }  \\\\
-\text{Centered:}\Delta_{C}=\frac{U(x+h)-U(x-h)}{h}\apporx{ U'(x)+O(h^2)}
+\text{Backward:}\Delta_{B}=\frac{U(x)-U(x-h)}{h}\approx{U'(x)+O(h) }  \\\\
+\text{Centered:}\Delta_{C}=\frac{U(x+h)-U(x-h)}{h}\approx{ U'(x)+O(h^2)}
 $$
 
 关于Centered证明（需要用到泰勒展开）：
