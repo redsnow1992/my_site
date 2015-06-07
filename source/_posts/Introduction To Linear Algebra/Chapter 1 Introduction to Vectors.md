@@ -9,7 +9,7 @@ The heart of linear algebra is in two operations--both with vectors:
 1. $v+w$
 2. $cv$
 
-how we can present a whole three-dimensional?
+how we can present a whole three-dimension?
 **The number of variables deside the dimension of a space**.
 **the linear combination  $cv+dw$ fills the whole two-dimensional plane**.
 
