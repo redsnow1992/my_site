@@ -1,3 +1,8 @@
+title: Solving Linear Equations
+categories: math
+tags: linear algebra
+mathjax: true
+---
 # Vectors and Linear Equations
 **Two equations**     $ x-2y = 11$
 **Two unknowns** 
