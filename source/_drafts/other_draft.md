@@ -26,3 +26,5 @@
 2. 成功
 3. 异常
 `retry/ack`
+
+BNF <=> Flow Chart
