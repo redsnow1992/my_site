@@ -1,5 +1,5 @@
 title: Shortcuts
-categories: shortcuts
+tags: shortcuts
 ---
 # Emacs Shortcuts
 [EmacsNewbieKeyReference](http://emacswiki.org/emacs/EmacsNewbieKeyReference)
