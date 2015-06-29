@@ -68,9 +68,9 @@ A+(B+C)=(A+B)+C \qquad (associative\; law)
 $$
 ### Multiplication laws:
 $$
-AB\ne BA \qquad (\text{the commutative "law" is usually broken})
-C(A+B)=CA+CB \qquad (\text{distributive law from the left})
-(A+B)C=AC+BC \qquad (\text{distributive law from the right})
+AB\ne BA \qquad (\text{the commutative "law" is usually broken}) \\\\
+C(A+B)=CA+CB \qquad (\text{distributive law from the left}) \\\\
+(A+B)C=AC+BC \qquad (\text{distributive law from the right}) \\\\
 A(BC)=(AB)C \qquad (\text{associative law for ABC})
 $$
 ## Block Matrices and Block Multiplication
