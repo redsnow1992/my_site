@@ -45,6 +45,6 @@ where beian_status != 11
 
 ## Delete
 ~~~sql
-delete tb_test
+delete from tb_test
 where content_type = 1
 ~~~
