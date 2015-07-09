@@ -51,3 +51,10 @@ tags: shortcuts
 (12,  show me how to expand my territory
 ~~~
 
+## ECB 
+    激活ecb模式        "M-x ecb-activate"
+    Go to history:     "C-c . g h"
+    Go to methods:     "C-c . g m"
+    Go to sources:     "C-c . g s"
+    Go to directories: "C-c . g d"
+    Main buffer:       "C-c . g 1"
