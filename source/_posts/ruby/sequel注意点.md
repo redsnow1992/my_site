@@ -1,4 +1,4 @@
-title: sequel注意点.md
+title: sequel注意点
 categories: programming
 tags: 
 - ruby
@@ -23,5 +23,13 @@ class Copyright
   end
 end
 ~~~
-
-
+# sequel uses raw sql
+insert example:
+~~~ruby
+# generate sql
+sql = "insert into tb_test (#{table.columns.join(',')}) values "
+sql += records.map{|r| "(" + %Q[value1, null, "string-value", now(), "#{Time.now.strftime("%F %T")}"] + ")"}.join(",")
+DB[sql].insert
+~~~
++ 在插入`datetime`类型时，有些mysql版本不支持这样的值`"#{Time.now}"`(`2015-07-09 11:49:41 +0800`这里的"+8000"mysql无法解析)，这里统一转化一下(`strftime("%F %T")`)。
++ 插入`null`和`now()`时不需要用括号引起来。
