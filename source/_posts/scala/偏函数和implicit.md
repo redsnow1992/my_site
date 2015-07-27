@@ -3,6 +3,19 @@ categories: programming
 tags: scala
 ---
 # 偏函数
+## 示例
+偏函数不同于currying，它表示这个函数只对某个类型下特定的值集有定义，例如：
+~~~scala
+val isEven: PartialFunction[Int, String] = {
+  case x if x % 2 == 0 => x+" is even"
+}
+~~~
+以上的`isEven`函数只对偶数的`Int`有定义，当以`isEven(9)`调用时会报错，我们可以使用`isDefinedAt`验证是否可以调用该函数。
+~~~
+if(isEven.isDefinedAt(9))  // =>  false
+  isEven(9)
+~~~
+## case与偏函数
 ~~~scala
 case class PhoneExt(name: String, ext: Int)
 val extensions = List(PhoneExt("steve", 100), PhoneExt("robey", 200))
