@@ -328,3 +328,225 @@ val f1 { (a: Int, b: int) =>
   sum
 }
 ~~~
+# 控制结构
+所有的控制结构都应该和定义的关键字留1个space：
+~~~scala
+// right!
+if (foo) bar else baz
+for (i <- 0 to 10) { ... }
+while (true) { println("Hello, World!") }
+
+// wrong!
+if(foo) bar else baz
+for(i <- 0 to 10) { ... }
+while(true) { println("Hello, World!") }
+~~~
+## 大括号
+1. `if`：当只有一个`else`时省略大括号，其他时候都用大括号。
+2. `while`：总是使用大括号。
+3. `for`：当有一个`yield`时省略大括号，其他时候都用大括号。
+4. `case`：总是省略`case`语句中的大括号。
+
+~~~scala
+val news = if (foo)
+  goodNews()
+else
+  badNews()
+
+if (foo) {
+  println("foo was true")
+}
+
+news match {
+  case "good" => println("Good news!")
+  case "bad" => println("Bad news!")
+}
+~~~
+## Comprehensions
+Scala中for-comprehensions不仅是一个生成器：
+~~~scala
+// wrong!
+for (x <- board.rows; y <- board.files) 
+  yield (x, y)
+
+// right!
+for {
+  x <- board.rows
+  y <- board.files
+} yield (x, y)
+~~~
+当Comprehensions只是一个生成器时，应当使用第一种形式：`for (i <- 0 to 10) yield i`
+而当for-comprehensions没有`yield`时，也应当使用第一种形式：
+~~~scala
+// wrong!
+for {
+  x <- board.rows
+  y <- board.files
+} {
+  printf("(%d, %d)", x, y)
+}
+
+// right!
+for (x <- board.rows; y <- board.files) {
+  printf("(%d, %d)", x, y)
+}
+~~~
+最后for-comprehensions通常会和`map`，`flatMap`，`filter`连用。
+# 方法调用
+## 无参函数
+~~~scala
+reply()
+// is the same as
+reply
+~~~
+当且仅当该函数没有副作用时，例如`queue.size`，而`println()`就不行。
+### 中缀形式
+Scala允许无参函数的中缀形式调用：
+~~~scala
+names.toList
+// is the same as
+
+names toList // Unsafe, don't use!
+~~~
+更可能会造成编译器错误：（虽然在2.11.6中并没有报错），但这种写法任然不好：
+~~~scala
+names toList
+val answer = 42 
+~~~
+## 单参函数
+两种调用形式：
+~~~scala
+names.mkString(",")
+// is the same as
+names mkString ","
+~~~
+中缀形式依然应该只用于无副作用的方法。
+~~~scala
+// right!
+names foreach (n => println(n))
+names mkString ","
+optStr getOrElse "<empty>"
+
+// wrong!
+javaList add item
+~~~
+### 高阶函数
+类似`map`，`filter`这样的高阶函数应该使用中缀形式，虽然一下调用是合法的：
+~~~scala
+names.map (_.toUpperCase)     // 并不好
+~~~
+以上调用有个缺点就是无法将方法调用串起来：
+~~~scala
+names.map (_.toUpperCase).filter (_.length > 5) // 并不好
+// right!
+names map (_.toUpperCase) filter (_.length > 5)
+~~~
+# 文件管理
+一般伴生对象和其对应的类或者trait在同一个文件中：
+~~~scala
+package com.novell.coolness
+class Inbox { ... }
+// companion object
+object Inbox { ... }
+~~~
+sealed trait和多个子类在同一个文件中：
+~~~
+sealed trait Option[+A]
+case class Some[A](a: A) extends Option[A]
+case object None extends Option[Nothing]
+~~~
+
+# ScalaDoc示例
+## 通常如此
+~~~scala
+/** This is a brief description of what's being documented.
+  *
+  * This is further documentation of what we're documenting.  It should
+  * provide more details as to how this works and what it does. 
+  */
+def myMethod = {}
+
+/** Does something very simple */
+def simple = {}
+~~~
+## package
+~~~scala
+package parent.package.name
+
+/** This is the ScalaDoc for the package. */
+package object mypackage {
+}
+~~~
+更多文档，引用其他类时，使用方括号：
+~~~scala
+package my.package
+/** Provides classes for dealing with complex numbers.  Also provides
+  * implicits for converting to and from `Int`.
+  *
+  * ==Overview==
+  * The main class to use is [[my.package.complex.Complex]], as so
+  * {{{
+  * scala> val complex = Complex(4,3)
+  * complex: my.package.complex.Complex = 4 + 3i
+  * }}}
+  *
+  * If you include [[my.package.complex.ComplexConversions]], you can 
+  * convert numbers more directly
+  * {{{
+  * scala> import my.package.complex.ComplexConversions._
+  * scala> val complex = 4 + 3.i
+  * complex: my.package.complex.Complex = 4 + 3i
+  * }}} 
+  */
+package complex {}
+~~~
+## 类
+~~~scala
+/** A person who uses our application.
+  *
+  * @constructor create a new person with a name and age.
+  * @param name the person's name
+  * @param age the person's age in years 
+  */
+class Person(name: String, age: Int) {
+}
+~~~
+## object
+~~~scala
+/** Factory for [[mypackage.Person]] instances. */
+object Person {
+  /** Creates a person with a given name and age.
+    *
+    * @param name their name
+    * @param age the age of the person to create 
+    */
+  def apply(name: String, age: Int) = {}
+  /** Creates a person with a given name and birthdate
+    *
+    * @param name their name
+    * @param birthDate the person's birthdate
+    * @return a new Person instance with the age determined by the 
+    *         birthdate and current date. 
+    */
+  def apply(name: String, birthDate: java.util.Date) = {}
+}
+~~~
+当object中有隐式转换时，应在文档中给出示例：
+~~~scala
+/** Implicit conversions and helpers for [[mypackage.Complex]] instances.
+  *
+  * {{{
+  * import ComplexImplicits._
+  * val c: Complex = 4 + 3.i
+  * }}} 
+  */
+object ComplexImplicits {}
+~~~
+
+
+
+
+
+
+
+
