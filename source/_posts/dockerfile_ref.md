@@ -40,7 +40,7 @@ FROM <iamge>@<digest>
 ~~~bash
 MAINTAINER <name>
 ~~~
-# `RUN`
+# `RUN`([详细](https://docs.docker.com/reference/run/))
 1. `RUN <command>`(run in a shell `/bin/sh -c` *shell form*)
 2. `RUN ["executable", "param1", "param2"]`(*exec form*)
 
