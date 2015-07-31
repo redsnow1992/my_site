@@ -1,4 +1,5 @@
 title: Chapter1 Introduction to Vectors
+date: 2015/06/08 09:31
 categories: math
 tags: linear algebra
 mathjax: true

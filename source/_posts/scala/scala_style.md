@@ -1,4 +1,5 @@
 title: Scala Style
+date: 2015/07/30 11:31
 categories: programming
 tags: scala
 ---

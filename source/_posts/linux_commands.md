@@ -9,6 +9,7 @@ categories: linux
 | sudo usermod -aG docker donald | 将docker添加到docker组  |
 | sudo update-rc.d jenkins disable | 从开机启动移除 |
 | start-stop-daemon --stop --quiet --pidfile $PIDFILE | 关闭后台进程 |
+| dpkg-query -S jenkins | 查找jenkins包 |
 
 *不定时更新*
 

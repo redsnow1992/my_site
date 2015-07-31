@@ -1,4 +1,5 @@
 title: 常用sql
+date: 2015/07/02 10:13
 categories: programming
 tags:
 - sql

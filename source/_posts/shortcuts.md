@@ -1,4 +1,5 @@
 title: Shortcuts
+date: 2015/07/09 11:24
 tags: shortcuts
 ---
 # Emacs Shortcuts

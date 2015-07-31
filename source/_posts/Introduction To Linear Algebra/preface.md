@@ -1,4 +1,5 @@
 title: Preface
+date: 2015/06/07 09:31
 categories: math
 tags: linear algebra
 mathjax: true

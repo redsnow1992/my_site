@@ -1,4 +1,5 @@
 title: sequel注意点
+date: 2015/07/14 14:53
 categories: programming
 tags: 
 - ruby

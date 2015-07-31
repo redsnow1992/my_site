@@ -1,4 +1,5 @@
 title: javascript日用代码集合（二）
+date: 2015/06/09 19:21
 categories: programming
 tags: javascript
 ---

@@ -1,4 +1,5 @@
 title: Keep Asking self
+date: 2015/06/03 19:23
 categories: thinking
 ---
 对于每个种类，都要反复问一些问题：

@@ -1,4 +1,5 @@
 title: Solving Linear Equations-Part 1
+date: 2015/06/16 17:09
 categories: math
 tags: linear algebra
 mathjax: true
