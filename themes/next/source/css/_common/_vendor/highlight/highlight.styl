@@ -3,140 +3,145 @@
 @require "theme"
 
 $code-block
-  background: highlight-background
-  margin: 20px 0
-  padding: 15px
-  overflow: auto
-  font-size 13px
-  color: highlight-foreground
-  line-height:  $line-height-code-block
+  background highlight-background
+  margin 0.5em 0
+  padding 1em 2%
+  overflow auto
+  color highlight-foreground
+  line-height line-height
+  font-size font-size
 
 $line-numbers
-  color: #666
+  color highlight-line-numbers 
+  font-size 0.85em
+  line-height line-height
+  font-size font-size
 
-.post
-  pre, code
-    font-family: $font-family-monospace
-  code
-    background: $gainsboro
-    text-shadow: 0 1px #fff
-    padding: 0 0.3em
+.article-content   
   pre
+    font-family font-mono
     @extend $code-block
     code
-      background: none
-      text-shadow: none
-      padding: 0
+      background none
+      text-shadow none
+      padding 0
   .highlight
     @extend $code-block
     pre
-      border: none
-      margin: 0
-      padding: 0
+      border none
+      margin 0
+      padding 0
     table
-      margin: 0
-      width: auto
+      margin 0
+      width auto
     td
-      border: none
-      padding: 0
+      border none
+      padding 0
     figcaption
       clearfix()
-      font-size: 0.85em
-      color: highlight-comment
-      line-height: 1em
-      margin-bottom: 1em
+      font-size 0.85em
+      text-align left
+      color highlight-comment
+      line-height 1em
+      padding 0.5em 0
+      margin-bottom 0.5em
       a
-        float: right
+        float right
     .gutter pre
       @extend $line-numbers
-      text-align: right
-      padding-right: 20px
-    .line
-      height: 20px
+      text-align right
+      padding-right 1.5em
   .gist
-    margin: 20px 0
-    border-style: solid
-    border-color: $border-color
-    border-width: 1px 0
-    background: highlight-background
-    padding: 15px $content-desktop-padding 15px 15px
+    margin 0.5em 0
+    background highlight-background
+    padding 1em 2%
     .gist-file
-      border: none
-      font-family: $font-family-monospace
-      margin: 0
+      border none
+      font-family font-mono
+      margin 0
       .gist-data
-        background: none
-        border: none
+        background none
+        border none
         .line-numbers
           @extend $line-numbers
-          background: none
-          border: none
-          padding: 0 20px 0 0
+          background none
+          border none
+          padding 0 1.5em 0 0
         .line-data
-          padding: 0 !important
+          padding 0 !important
       .highlight
-        margin: 0
-        padding: 0
-        border: none
+        margin 0
+        padding 0
+        border none
       .gist-meta
-        background: highlight-background
-        color: highlight-comment
-        font: 13px $font-family-base
-        text-shadow: 0 0
-        padding: 0
-        margin-top: 1em
-        margin-left: $content-desktop-padding
+        background highlight-background
+        color highlight-comment
+        font 0.85em font-serif
+        padding 0
+        margin-top 1em
+        text-shadow none
         a
-          color: color-link
-          font-weight: normal
+          color color-blue
+          font-weight normal
           &:hover
-            text-decoration: underline
+            color color-theme
 
 pre
   .comment
-    color: highlight-comment
+    color highlight-comment
+  .title
   .variable
   .attribute
   .tag
   .regexp
   .ruby .constant
-  .xml .tag .title
-  .xml .pi
-  .xml .doctype
-  .html .doctype
-  .css .id
-  .css .class
-  .css .pseudo
-    color: highlight-red
+  .tag .title
+  .pi
+  .doctype
+  .doctype
+  .id
+  .class
+  .pseudo 
+    color #66D9EF
   .number
   .preprocessor
+  .pragma
   .built_in
   .literal
   .params
-  .constant
-    color: highlight-orange
-  .ruby .class .title
-  .css .rules .attribute
-    color: highlight-green
+  .constant 
+    color #66d9ef
+  .class .title  
+    color #A6E22E
+  .rules .attribute
+    color #f8f8f2
   .string
   .value
   .inheritance
   .header
-  .ruby .symbol
-  .xml .cdata
-    color: highlight-green
-  .title
-  .css .hexcolor
-    color: highlight-aqua
+  .cdata
+    color #E6DB74
+  .symbol
+    color #F92672
+  .css .hexcolor 
+    color #ae81ff
   .function
-  .python .decorator
+  .function .title
+  .decorator
   .python .title
-  .ruby .function .title
-  .ruby .title .keyword
+  .title .keyword
   .perl .sub
   .javascript .title
   .coffeescript .title
-    color: highlight-blue
+    color #e6db74
   .keyword
-  .javascript .function
-    color: highlight-purple
+  .javascript .function 
+    color #f92672
+  .coffeescript .javascript
+  .javascript .xml
+  .tex .formula
+  .xml .javascript
+  .xml .vbscript
+  .xml .css
+  .xml .cdata 
+    opacity 0.5

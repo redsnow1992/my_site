@@ -70,3 +70,47 @@ if $theme_config == "night bright"
   highlight-aqua         = #70c0b1
   highlight-blue         = #7aa6da
   highlight-purple       = #c397d8
+
+if $theme_config == "monokai"
+  highlight-background = #23241F
+  highlight-current-line = #282a2e
+  highlight-line-numbers = #666
+  highlight-selection = #373b41
+  highlight-foreground = #F8F8F2
+  highlight-comment = #75715E
+  highlight-red = #cc6666
+  highlight-orange = #de935f
+  highlight-yellow = #f0c674
+  highlight-green = #b5bd68
+  highlight-aqua = #8abeb7
+  highlight-blue = #81a2be
+  highlight-purple = #b294bb
+
+  .highlight {
+    background-color: #282828;
+    color: #F8F8F2;
+    overflow: auto ;
+    margin: 20px 0px ;
+    font-size: 13px ;
+
+    .gutter {
+      background-color: lighten(#282828, 1%);
+
+      pre {
+        .line {
+          padding-right: 15px;
+          padding-left: 10px;
+        }
+      }
+
+      .class {
+        .keyword {
+          color: #A6E22E;
+        }
+        .title {
+
+        }
+      }
+    }
+    
+  }
