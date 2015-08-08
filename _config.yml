@@ -74,8 +74,15 @@ deploy:
 
 sitemap:
   path: sitemap.xml
-## set for next theme
+
+# =============================================================================
+# NexT Theme configuration
+# =============================================================================
+
 since: 2015
 language: zh-Hans
 avatar: https://avatars1.githubusercontent.com/u/6743846?v=3&s=460 ## size:220px*220px.
 duoshuo_shortname: alfonso
+social:
+  GitHub: https://github.com/redsnow1992
+creative_commons: by-nc-sa
