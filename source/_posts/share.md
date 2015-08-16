@@ -3,7 +3,7 @@ date: 2015/08/16 08:00
 categories: thinking
 tags: share
 ---
-昨天看到一些好文章，觉得只是收藏在自己的书签里面有些明珠暗投，所以分享出来，而且也可以多提醒自己有空的时候再看几遍。
+最近看到一些好文章，觉得只是收藏在自己的书签里面有些明珠暗投，所以分享出来，而且也可以多提醒自己有空的时候再看几遍。
 
 + [理解矩阵](http://blog.csdn.net/myan/article/details/647511)
 + [程序观点下的线性代数](http://www.cnblogs.com/weidagang2046/p/linear-algebra-from-programming-perspective.html)
