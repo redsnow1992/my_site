@@ -58,3 +58,21 @@ val str = MessageFormat.format("The answer to {0} is {1}", "everything", 42.asIn
 ## Procedures
 当一个函数体以大括号包裹，并且前面没有 `=` ，那么返回值类型就是 `Unit`。这样的函数称为 `procedure`。
 当且仅当你需要副作用的时候，才调用一个 `procedure`。
+# Lazy
+`lazy`的值只是在第一次
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
