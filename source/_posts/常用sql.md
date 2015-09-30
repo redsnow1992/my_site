@@ -44,6 +44,17 @@ update tb_body_content_track set beian_status = 1, is_deleted = false
 where beian_status != 11
 ~~~
 
+## 批量更新
+~~~sql
+update tb_test set title = case
+when id = 2 then 't1'
+when id = 3 then 't2'
+else title
+end, updated_at = now()
+/* where id in (2, 3) */
+~~~
+结尾的`case`之后的`else`，否则将会把该表的其余部分的`title`置为`null`，`where`语句可以起到和`else`相同的作用。
+
 ## Delete
 ~~~sql
 delete from tb_test
