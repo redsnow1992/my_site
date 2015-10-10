@@ -33,8 +33,9 @@ alter table tb_copyright_content
             add column price_mode varchar(255) after right_type, 
             add column minimum_price varchar(255) after right_type, 
             add column divide_rate varchar(255) after right_type
-
-index:
+~~~
+sql index:
+~~~sql
 alter table table_name add index(status)
 show index from ting_passport.tb_profile
 ~~~
