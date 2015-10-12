@@ -37,7 +37,8 @@ alter table tb_copyright_content
 sql index:
 ~~~sql
 alter table table_name add index(status)
-show index from ting_passport.tb_profile
+alter table table_name add unique index(status)  !!! unique
+show index from table_name
 ~~~
 ## Update
 ~~~sql
