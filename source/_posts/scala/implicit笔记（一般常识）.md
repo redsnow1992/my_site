@@ -70,14 +70,13 @@ def smaller[T](a: T, b: T)(implicit order: T => Ordered[T])
 ## 上下文边界
 在类定义中，声明一个上下文边界`T:M`就表示在当前的scope中存在一个隐式值`M[T]`，所以的当要使用这种形式的定义是，要确定有这样一个隐式值（若没有编译器会报错）。
 示例：
-~~~
-scala
+~~~scala
 class Pair[T : Ordering](val first: T, val second: T) {
   def smaller(implicit ord: Ordering[T]) =
     if (ord.compare(first, second) < 0) first else second
 }
 ~~~
-在*scala/src/library/scala/math/Ordering.scala*中如下代码保证了`Ordering[Int]`：
+在 *scala/src/library/scala/math/Ordering.scala* 中如下代码保证了`Ordering[Int]`：
 ~~~scala
 trait IntOrdering extends Ordering[Int] {
     def compare(x: Int, y: Int) =
