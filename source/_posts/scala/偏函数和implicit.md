@@ -1,7 +1,9 @@
 title: 偏函数和implicit
 date: 2015/07/29 16:01
 categories: programming
-tags: scala
+tags: 
+- scala
+- implicit
 ---
 # 偏函数
 ## 示例
