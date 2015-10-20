@@ -1,4 +1,4 @@
-title: implicit笔记 2
+title: implicit笔记（一般常识）
 date: 2015/10/20 19:01
 categories: programming
 tags: 
