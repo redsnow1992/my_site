@@ -63,7 +63,7 @@ def firstLast[A, C](it: C)(implicit ev: C <:< Iterable[A]) =
 #+END_SRC
 #+ATTR_HTML: :target _blank
 上述代码的返回类型发现变化，正是 ~CanBuildFrom~ 搞的鬼，具体的分析参见[[http://hongjiang.info/scala-canbuildfrom-detail/][Here]]。
-~Repr~ 被隐式转换为 ~StringOps~ ，~B~ 为 ~toInt~ 的返回值， ~That~ 则表示 ~map~ 返回的类型。
+~Repr~ 被隐式转换为 ~StringOps~ ， ~B~ 为 ~toInt~ 的返回值， ~That~ 则表示 ~map~ 返回的类型。
 
 一个简易版本的 ~ArrayBuffer~ ：
 #+BEGIN_SRC scala -n
