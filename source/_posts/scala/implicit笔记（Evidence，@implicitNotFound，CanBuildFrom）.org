@@ -10,11 +10,10 @@
 
 * Tasks
 ** TODO 添加上篇链接
-** TODO 添加Evidence翻译
-** TODO 添加inline code block
+** DONE 添加inline code block
 
 紧接上篇
-* Evidence（）
+* Evidence
 #+BEGIN_SRC  scala -n
 T =:= U   // equal 
 T <:< U   // a subtype of u
