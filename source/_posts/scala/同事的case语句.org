@@ -1,0 +1,37 @@
+#+STARTUP: showeverything
+#+TITLE: 同事的case语句
+#+OPTIONS: tex:t
+#+OPTIONS: tex:nil
+#+OPTIONS: tex:verbatim
+
+** 优雅的代码
+看到同事的case的语句，深深地折服了。
+原来的ruby代码：
+#+BEGIN_SRC ruby
+case type
+when "type1"
+  "value1"
+when "type2"
+  "value2"
+when "type3"
+  "value3"
+else
+  "value-else"
+end
+#+END_SRC
+同事转换成如下的scala代码：
+#+BEGIN_SRC scala
+Map[String, String](
+  "type1" -> "value1",
+  "type2" -> "value2",
+  "type3" -> "value3",
+).withDefaultValue("value-else")
+#+END_SRC
+这种写法也可以用ruby实现：
+#+BEGIN_SRC ruby
+h = Hash.new["value-else"]
+h["type1"] = "value1"
+h["type2"] = "value2"
+h["type3"] = "value3"
+#+END_SRC
+Created: <2015-11-04 Wed 09:04>
