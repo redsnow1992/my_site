@@ -1,0 +1,16 @@
+#+STARTUP: showeverything
+#+TITLE: 映射、最小二乘法、正交向量
+
+#+BEGIN_SRC ditaa :file relation.png
++------------+      +------------+      +--------------------+
+| projection | ---> | orthogonal | ---> | Fourier/Other      |
++------------+      | vectors    |      | function transform |
+      |             +------------+      +--------------------+
+      |                                           ^
+      |                                           |
+      |-------------------------------------------+
+      v
++--------------+
+| least square |
++--------------+
+#+END_SRC
