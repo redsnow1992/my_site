@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 #+STARTUP: showeverything
 #+TITLE: 对象池、链接池
-
+#+DATE: <2015-11-20 Fri 16:09>
+#+CATEOGRIES: programming
+#+TAGS: design,ruby
+#+OPTIONS: toc:nil
 起因：有同事说某个接口返回的信息不一致，作为接口的维护者我需要来修正这个问题
 
 故事是这样的：
@@ -149,6 +152,3 @@ end
 
 ** 总结
 一番磨难之后，自己学到了很多东西。发现路还很长。
-
-
-Created: <2015-11-20 Fri 16:09>

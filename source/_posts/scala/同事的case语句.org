@@ -1,9 +1,13 @@
 #+STARTUP: showeverything
 #+TITLE: 同事的case语句
+#+DATE: <2015-11-04 Wed 09:04>
+#+UPDATED: <2015-12-04 Wed 09:04>
 #+OPTIONS: tex:t
 #+OPTIONS: tex:nil
 #+OPTIONS: tex:verbatim
-
+#+TAGS: scala
+#+CATEGORIES: programming
+#+OPTIONS: toc:nil
 ** 优雅的代码
 看到同事的case的语句，深深地折服了。
 原来的ruby代码：

@@ -3,29 +3,27 @@
 #+STARTUP: showall
 #+STARTUP: showeverything
 #+TITLE: implicit笔记（Evidence，@implicitNotFound，CanBuildFrom）
+#+DATE: <2015-10-22 17:00>
 #+OPTIONS: tex:t
 #+OPTIONS: tex:nil
 #+OPTIONS: tex:verbatim
-
-
-* Tasks
-** TODO 添加上篇链接
-** DONE 添加inline code block
-
-紧接上篇
+#+OPTIONS: toc:nil
+#+CATEOGRIES: programming
+#+LAYOUT: post
+#+TAGS: scala
 * Evidence
-#+BEGIN_SRC  scala -n
+#+BEGIN_SRC  scala
 T =:= U   // equal 
 T <:< U   // a subtype of u
 T <%< U   // view-convertible to u
 #+END_SRC
 使用上述的类型约束的时候，还需要我们提供隐式参数，我们以 src_ruby{<:<} 为例，有如下使用：
-#+BEGIN_SRC  scala -n
+#+BEGIN_SRC  scala
 def firstLast[A, C](it: C)(implicit ev: C <:< Iterable[A]) =
   (it.head, it.last)
 #+END_SRC
 在 ~Predef~ Object中定义了 ~<:<~ 和其隐式值，2.11.7中定义如下：
-#+BEGIN_SRC  scala -n
+#+BEGIN_SRC  scala
 @implicitNotFound(msg = "Cannot prove that ${From} <:< ${To}.")
 sealed abstract class <:<[-From, +To] extends (From => To) with Serializable
 private[this] final val singleton_<:< = new <:<[Any,Any] { def apply(x: Any): Any = x }
@@ -35,7 +33,7 @@ private[this] final val singleton_<:< = new <:<[Any,Any] { def apply(x: Any): An
 implicit def $conforms[A]: A <:< A = singleton_<:<.asInstanceOf[A <:< A]
 #+END_SRC
 在2.9.3定义如下：
-#+BEGIN_SRC  scala -n
+#+BEGIN_SRC  scala
 @implicitNotFound(msg = "Cannot prove that ${From} <:< ${To}.")
 sealed abstract class <:<[-From, +To] extends (From => To) with Serializable
 private[this] final val singleton_<:< = new <:<[Any,Any] { def apply(x: Any): Any = x }
@@ -65,7 +63,7 @@ def firstLast[A, C](it: C)(implicit ev: C <:< Iterable[A]) =
 ~Repr~ 被隐式转换为 ~StringOps~ ， ~B~ 为 ~toInt~ 的返回值， ~That~ 则表示 ~map~ 返回的类型。
 
 一个简易版本的 ~ArrayBuffer~ ：
-#+BEGIN_SRC scala -n
+#+BEGIN_SRC scala
 trait Builder[-E,+To] {
   def +=(e: E): Unit
   def result(): To
@@ -97,7 +95,7 @@ object Buffer {
 
 * 一些tips
 1. 要检测是否存在一个隐式对象，则可以在REPL中使用如下方法，例如：
-#+BEGIN_SRC  scala -n
+#+BEGIN_SRC  scala
 scala> implicitly[String <:< AnyRef] 
 res0: <:<[String,AnyRef] = <function1>
 #+END_SRC
