@@ -86,3 +86,5 @@ duoshuo_shortname: alfonso
 social:
   GitHub: https://github.com/redsnow1992
 creative_commons: by-nc-sa
+org:
+  emacs: /usr/bin/emacs
