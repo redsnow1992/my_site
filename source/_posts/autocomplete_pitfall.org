@@ -2,7 +2,7 @@
 #+TITLE: autocomplete pitfall
 #+DATE: <2015-10-29 Thu 09:40>
 #+OPTIONS: toc:nil
-#+CATEGORIES: programmming
+#+CATEGORIES: programming
 # autocomplete
 firefox会在页面重载（还有前进、后退）的时候缓存form中的所有字段，而chrome却不会。
 
