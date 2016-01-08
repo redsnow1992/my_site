@@ -1,0 +1,5 @@
+#+STARTUP: showeverything
+#+TITLE: mysql notes
+
+MYSQL InnoDB 默认使用 *行级锁*。行级锁是基于索引的，如果一条SQL语句用不到索引
+便不会使用行级锁， 会使用 *表级锁* 把整张表锁住。
