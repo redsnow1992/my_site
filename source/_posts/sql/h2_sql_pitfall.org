@@ -3,7 +3,7 @@
 #+DATE: <2016-01-14 Thu 17:55>
 #+OPTIONS: toc:nil
 #+CATEGORIES: programming
-#+TAGS: sql
+#+TAGS: sql, pitfall
 
 今天在用h2这个内存数据库初始化数据库的时候碰到了这样一个问题， \\
 使用如下的语句来初始化：
@@ -51,10 +51,10 @@ insert into tb_player values
 为此我还把sql都复制到mysql客户端中，上面的两条sql都没有错，数据可以插入。  \\
 之后先确认了 ~create.sql~ 这个sql是没问题的，就是说创建表对后续的插入数据没有影响。 \\
 因为不插入数据，项目可以跑起来。  \\
-所以就把问题定位到 ~init.sql~ 这条语句，偶然间看到编辑器高亮的把 ~"~ 改为 ~\"~ 也不行，还会报sql语法错误。 \\
+所以就把问题定位到 ~init.sql~ 这条语句，偶然间看到编辑器高亮的把 " 改为 \" 也不行，还会报sql语法错误。 \\
 又随便修改了一点，偶然间看到编辑器高亮变成如下的了：
 #+NAME: emacs h2 varchar
-[[./images/emacs_h2_varchar.jpg]]   \\
+[[/img/emacs_h2_varchar.jpg]]   \\
 用两种引号括起来的字符串显示颜色是不同的，之后把双引号改为单引号句OK了。 \\
 之后查了h2的文档在[[http://www.h2database.com/html/datatypes.html#varchar_type][这里]] 就可以看到，只支持单引号的字符串。  \\
 well Done！！
