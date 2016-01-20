@@ -32,4 +32,6 @@ first/second-some-suffix
 first/second-some-suffix-some-suffix
 #+END_SRC
 ~path~ 这个参数在函数里面被改变了，然后这个改变传到了外面，就这样灾难开始了。
-这种代码一旦发生就很难调试，让我们拥抱 immutable 吧。
+这种代码一旦发生就很难调试，让我们拥抱 immutable 吧。 \\
+但如果把 ~<<~ 改为 ~+=~ 就不会出现这个问题，我不太建议这么做，看者像 mutable。 \\
+如果把 ~path <<~ 改为 ~path.concat~ 这样 ~mutable~ 问题就更容易暴露出来。
