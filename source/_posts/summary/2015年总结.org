@@ -47,5 +47,5 @@ ruby已不如当年那样风头正劲，进入成熟期的ruby不知后面还会
 最后附一下歌单：
 #+BEGIN_HTML
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 
-src="http://music.163.com/outchain/player?type=0&id=81737422&auto=1&height=430"></iframe>
+src="http://music.163.com/outchain/player?type=0&id=81737422&auto=0&height=430"></iframe>
 #+END_HTML
