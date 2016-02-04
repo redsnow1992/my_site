@@ -1,29 +1,22 @@
-#+STARTUP: overview
-#+STARTUP: content
-#+STARTUP: showall
-#+STARTUP: showeverything
-#+TITLE: implicit笔记（Evidence，@implicitNotFound，CanBuildFrom）
-#+DATE: <2015-10-22 17:00>
-#+OPTIONS: tex:t
-#+OPTIONS: tex:nil
-#+OPTIONS: tex:verbatim
-#+OPTIONS: toc:nil
-#+CATEOGRIES: programming
-#+LAYOUT: post
-#+TAGS: scala
-* Evidence
-#+BEGIN_SRC  scala
+title: implicit笔记（Evidence，@implicitNotFound，CanBuildFrom）
+date: 2015/10/22 17:00
+cateogries: programming
+tags: scala
+---
+
+# Evidence
+```  scala
 T =:= U   // equal 
 T <:< U   // a subtype of u
 T <%< U   // view-convertible to u
-#+END_SRC
-使用上述的类型约束的时候，还需要我们提供隐式参数，我们以 src_ruby{<:<} 为例，有如下使用：
-#+BEGIN_SRC  scala
+```
+使用上述的类型约束的时候，还需要我们提供隐式参数，我们以 `<:<` 为例，有如下使用：
+```  scala
 def firstLast[A, C](it: C)(implicit ev: C <:< Iterable[A]) =
   (it.head, it.last)
-#+END_SRC
-在 ~Predef~ Object中定义了 ~<:<~ 和其隐式值，2.11.7中定义如下：
-#+BEGIN_SRC  scala
+```
+在 `Predef` Object中定义了 `<:<` 和其隐式值，2.11.7中定义如下：
+```  scala
 @implicitNotFound(msg = "Cannot prove that ${From} <:< ${To}.")
 sealed abstract class <:<[-From, +To] extends (From => To) with Serializable
 private[this] final val singleton_<:< = new <:<[Any,Any] { def apply(x: Any): Any = x }
@@ -31,39 +24,37 @@ private[this] final val singleton_<:< = new <:<[Any,Any] { def apply(x: Any): An
 // by a user-defined method of the same name (SI-7788).
 // The collections rely on this method.
 implicit def $conforms[A]: A <:< A = singleton_<:<.asInstanceOf[A <:< A]
-#+END_SRC
+```
 在2.9.3定义如下：
-#+BEGIN_SRC  scala
+```  scala
 @implicitNotFound(msg = "Cannot prove that ${From} <:< ${To}.")
 sealed abstract class <:<[-From, +To] extends (From => To) with Serializable
 private[this] final val singleton_<:< = new <:<[Any,Any] { def apply(x: Any): Any = x }
 // not in the <:< companion object because it is also
 // intended to subsume identity (which is no longer implicit)
 implicit def conforms[A]: A <:< A = singleton_<:<.asInstanceOf[A <:< A]
-#+END_SRC
-从上我们可以看出这个类继承自一个单参数函数，从一定意义上讲我们可以将 ~<:<~ 的对象视做函数。
-当编译器处理 ~implicit ev: String <:< AnyRef~ 这样一个约束的时候，它会在伴生对象中查找 ~String <:< AnyRef~
-的隐式对象，因为 ~From~ 为协变， ~To~ 为逆变，故而 ~<:<.conforms[String]~ 可作为 ~String <:< AnyRef~ 的实例。
-而将 ~ev~ 称为一个 ~evidence object~ 是因为 ~String~ 很明显是 ~AnyRef~ 的子类型。
-~ev~ 的函数性体现在隐式转换中，将参数进行包裹转换（其实还是类型转换）。
-#+BEGIN_SRC scala
+```
+从上我们可以看出这个类继承自一个单参数函数，从一定意义上讲我们可以将 `<:<` 的对象视做函数。
+当编译器处理 `implicit ev: String <:< AnyRef` 这样一个约束的时候，它会在伴生对象中查找 `String <:< AnyRef`
+的隐式对象，因为 `From` 为协变， `To` 为逆变，故而 `<:<.conforms[String]` 可作为 `String <:< AnyRef` 的实例。
+而将 `ev` 称为一个 `evidence object` 是因为 `String` 很明显是 `AnyRef` 的子类型。
+`ev` 的函数性体现在隐式转换中，将参数进行包裹转换（其实还是类型转换）。
+``` scala
 def firstLast[A, C](it: C)(implicit ev: C <:< Iterable[A]) =
   (ev(it).head, ev(it).last)
-#+END_SRC
+```
+**@implicitNotFound标记** 在以上代码中就有使用该标记，为了给程序员有用的错误信息。
 
-*@implicitNotFound标记* 在以上代码中就有使用该标记，为了给程序员有用的错误信息。
-
-* 难啃的骨头 ~CanBuildFrom[Repr, B, That]~
-#+BEGIN_SRC scala
+# 难啃的骨头 `CanBuildFrom[Repr, B, That]`
+``` scala
 "abc".map(_.toUpper) // => String
 "abc".map(_.toInt) // => Vector
-#+END_SRC
-#+ATTR_HTML: :target _blank
-上述代码的返回类型发现变化，正是 ~CanBuildFrom~ 搞的鬼，具体的分析参见[[http://hongjiang.info/scala-canbuildfrom-detail/][Here]]。
-~Repr~ 被隐式转换为 ~StringOps~ ， ~B~ 为 ~toInt~ 的返回值， ~That~ 则表示 ~map~ 返回的类型。
+```
+上述代码的返回类型发现变化，正是 `CanBuildFrom` 搞的鬼，具体的分析参见[Here](http://hongjiang.info/scala-canbuildfrom-detail)。
+`Repr` 被隐式转换为 `StringOps` ， `B` 为 `toInt` 的返回值， `That` 则表示 `map` 返回的类型。
 
-一个简易版本的 ~ArrayBuffer~ ：
-#+BEGIN_SRC scala
+一个简易版本的 `ArrayBuffer` ：
+``` scala
 trait Builder[-E,+To] {
   def +=(e: E): Unit
   def result(): To
@@ -91,11 +82,11 @@ object Buffer {
     def apply() = new Buffer[E]
   }
 }
-#+END_SRC
+```
 
-* 一些tips
+# 一些tips
 1. 要检测是否存在一个隐式对象，则可以在REPL中使用如下方法，例如：
-#+BEGIN_SRC  scala
+```  scala
 scala> implicitly[String <:< AnyRef] 
 res0: <:<[String,AnyRef] = <function1>
-#+END_SRC
+```
