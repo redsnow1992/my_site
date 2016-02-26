@@ -11,7 +11,7 @@ msort((x: Char, y: Char) => x > y)(ls)
 ls sortWith(_ > _)
 msort(_ > _)(ls)    // error: missing parameter type for expanded   
 ~~~
-![scala类型推导](http://images.cnblogs.com/cnblogs_com/hard-work/689518/o_RTX%E6%88%AA%E5%9B%BE%E6%9C%AA%E5%91%BD%E5%90%8D.jpg)
+![scala类型推导](/img/scala_msort.jpg)
 
 ~~~scala
 // my msort

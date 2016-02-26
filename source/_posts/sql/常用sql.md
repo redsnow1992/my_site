@@ -62,3 +62,15 @@ end, updated_at = now()
 delete from tb_test
 where content_type = 1
 ~~~
+
+## [数据库的charset](http://dev.mysql.com/doc/refman/5.0/en/charset.html)
+~~~sql
+use mydatabase
+select @@character_set_database
+
+alter database mydatabase character set utf8 collate utf8_unicode_ci
+
+SHOW FULL COLUMNS FROM table_name
+
+ALTER TABLE t MODIFY col1 VARCHAR(50) CHARACTER SET greek
+~~~
